@@ -1,0 +1,11 @@
+services: 
+  frontend:
+    build: ./SuperHeroQuotes.Frontend
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
+  backend:
+      build: ./SuperHeroQuotes.Api
+      ports:
+        - "5086:80"
