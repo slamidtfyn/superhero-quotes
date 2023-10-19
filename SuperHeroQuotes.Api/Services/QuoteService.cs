@@ -6,6 +6,13 @@ namespace SuperHeroQuotes.Api.Services;
 
 public class QuoteService
 {
+    private readonly Random _random;
+
+    public QuoteService()
+    {
+        _random = new Random();
+    }
+
     private IReadOnlyList<QuoteModel> Quotes { get; } = 
         JsonSerializer.Deserialize<IReadOnlyList<QuoteModel>>(File.ReadAllText(Path.Combine(Environment.CurrentDirectory, "quotes.json")), new JsonSerializerOptions()
         {
@@ -15,8 +22,7 @@ public class QuoteService
 
     public QuoteModel RandomQuote()
     {
-        var random = new Random();
-        var index = random.Next(Quotes.Count);
+        var index = _random.Next(Quotes.Count + 1);
         return Quotes[index];
         
     }
