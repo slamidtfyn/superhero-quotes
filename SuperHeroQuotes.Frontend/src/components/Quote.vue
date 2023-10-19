@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {ref} from 'vue';
 
-const quote = ref("FOO BAR");
+const quote = ref("Loading quote....");
 
 setInterval(() => {
   fetch("http://localhost:5086/Quote", {mode: 'cors'})
