@@ -22,7 +22,7 @@ public class QuoteService
 
     public QuoteModel RandomQuote()
     {
-        var index = _random.Next(Quotes.Count + 1);
+        var index = _random.Next(Quotes.Count);
         return Quotes[index];
         
     }
